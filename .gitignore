@@ -1,0 +1,16 @@
+pkg/
+Gemfile.lock
+vendor/
+spec/fixtures/
+.vagrant/
+.bundle/
+coverage/
+.idea/
+*.swp
+*.iml
+/openstack
+/log
+
+# Files created by releasenotes build
+releasenotes/build
+.tox
