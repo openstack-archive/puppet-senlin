@@ -85,3 +85,8 @@ Release Notes
 -------------
 
 * https://docs.openstack.org/releasenotes/puppet-senlin
+
+Repository
+-------------
+
+* https://git.openstack.org/cgit/openstack/puppet-senlin
