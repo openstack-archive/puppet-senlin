@@ -4,19 +4,19 @@
 # == Parameters
 #
 # [*extra_params*]
-#   (optional) String of extra command line parameters to append
+#   (Optional) String of extra command line parameters to append
 #   to the senlin-dbsync command.
 #   Defaults to undef
 #
 class senlin::db::sync(
-  $extra_params  = undef,
+  $extra_params = undef,
 ) {
 
   include ::senlin::deps
 
   exec { 'senlin-db-sync':
     command     => "senlin-manage db_sync ${extra_params}",
-    path        => [ '/bin', '/usr/bin', ],
+    path        => [ '/bin', '/usr/bin' ],
     user        => 'senlin',
     refreshonly => true,
     try_sleep   => 5,
