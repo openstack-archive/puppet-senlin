@@ -22,16 +22,16 @@ describe 'senlin::keystone::auth' do
         :roles   => ['admin']
       )}
 
-      it { is_expected.to contain_keystone_service('senlin::FIXME').with(
+      it { is_expected.to contain_keystone_service('senlin::clustering').with(
         :ensure      => 'present',
-        :description => 'senlin FIXME Service'
+        :description => 'Senlin Clustering Service'
       ) }
 
-      it { is_expected.to contain_keystone_endpoint('RegionOne/senlin::FIXME').with(
+      it { is_expected.to contain_keystone_endpoint('RegionOne/senlin::clustering').with(
         :ensure       => 'present',
-        :public_url   => 'http://127.0.0.1:FIXME',
-        :admin_url    => 'http://127.0.0.1:FIXME',
-        :internal_url => 'http://127.0.0.1:FIXME',
+        :public_url   => 'http://127.0.0.1:8778',
+        :admin_url    => 'http://127.0.0.1:8778',
+        :internal_url => 'http://127.0.0.1:8778',
       ) }
     end
 
@@ -43,7 +43,7 @@ describe 'senlin::keystone::auth' do
           :admin_url    => 'http://10.10.10.12:81', }
       end
 
-      it { is_expected.to contain_keystone_endpoint('RegionOne/senlin::FIXME').with(
+      it { is_expected.to contain_keystone_endpoint('RegionOne/senlin::clustering').with(
         :ensure       => 'present',
         :public_url   => 'https://10.10.10.10:80',
         :internal_url => 'http://10.10.10.11:81',
@@ -59,8 +59,8 @@ describe 'senlin::keystone::auth' do
 
       it { is_expected.to contain_keystone_user('senliny') }
       it { is_expected.to contain_keystone_user_role('senliny@services') }
-      it { is_expected.to contain_keystone_service('senlin::FIXME') }
-      it { is_expected.to contain_keystone_endpoint('RegionOne/senlin::FIXME') }
+      it { is_expected.to contain_keystone_service('senlin::clustering') }
+      it { is_expected.to contain_keystone_endpoint('RegionOne/senlin::clustering') }
     end
 
     context 'when overriding service name' do
@@ -72,8 +72,8 @@ describe 'senlin::keystone::auth' do
 
       it { is_expected.to contain_keystone_user('senlin') }
       it { is_expected.to contain_keystone_user_role('senlin@services') }
-      it { is_expected.to contain_keystone_service('senlin_service::FIXME') }
-      it { is_expected.to contain_keystone_endpoint('RegionOne/senlin_service::FIXME') }
+      it { is_expected.to contain_keystone_service('senlin_service::clustering') }
+      it { is_expected.to contain_keystone_endpoint('RegionOne/senlin_service::clustering') }
     end
 
     context 'when disabling user configuration' do
@@ -87,9 +87,9 @@ describe 'senlin::keystone::auth' do
 
       it { is_expected.not_to contain_keystone_user('senlin') }
       it { is_expected.to contain_keystone_user_role('senlin@services') }
-      it { is_expected.to contain_keystone_service('senlin::FIXME').with(
+      it { is_expected.to contain_keystone_service('senlin::clustering').with(
         :ensure      => 'present',
-        :description => 'senlin FIXME Service'
+        :description => 'Senlin Clustering Service'
       ) }
 
     end
@@ -106,9 +106,9 @@ describe 'senlin::keystone::auth' do
 
       it { is_expected.not_to contain_keystone_user('senlin') }
       it { is_expected.not_to contain_keystone_user_role('senlin@services') }
-      it { is_expected.to contain_keystone_service('senlin::FIXME').with(
+      it { is_expected.to contain_keystone_service('senlin::clustering').with(
         :ensure      => 'present',
-        :description => 'senlin FIXME Service'
+        :description => 'Senlin Clustering Service'
       ) }
 
     end

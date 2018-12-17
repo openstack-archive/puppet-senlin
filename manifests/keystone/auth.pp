@@ -37,7 +37,7 @@
 #
 # [*service_type*]
 #   (Optional) Type of service.
-#   Defaults to 'key-manager'.
+#   Defaults to 'clustering'.
 #
 # [*region*]
 #   (Optional) Region for endpoint.
@@ -49,22 +49,22 @@
 #
 # [*service_description*]
 #   (Optional) Description of the service.
-#   Default to 'senlin FIXME Service'
+#   Default to 'Senlin Clustering Service'
 #
 # [*public_url*]
 #   (0ptional) The endpoint's public url.
 #   This url should *not* contain any trailing '/'.
-#   (Defaults to 'http://127.0.0.1:FIXME'
+#   (Defaults to 'http://127.0.0.1:8778'
 #
 # [*admin_url*]
 #   (Optional) The endpoint's admin url.
 #   This url should *not* contain any trailing '/'.
-#   (Defaults to 'http://127.0.0.1:FIXME'
+#   (Defaults to 'http://127.0.0.1:8778'
 #
 # [*internal_url*]
 #   (Optional) The endpoint's internal url.
 #   This url should *not* contain any trailing '/'.
-#   (Defaults to 'http://127.0.0.1:FIXME'
+#   (Defaults to 'http://127.0.0.1:8778'
 #
 class senlin::keystone::auth (
   $password,
@@ -76,12 +76,12 @@ class senlin::keystone::auth (
   $configure_user      = true,
   $configure_user_role = true,
   $service_name        = 'senlin',
-  $service_description = 'senlin FIXME Service',
-  $service_type        = 'FIXME',
+  $service_description = 'Senlin Clustering Service',
+  $service_type        = 'clustering',
   $region              = 'RegionOne',
-  $public_url          = 'http://127.0.0.1:FIXME',
-  $admin_url           = 'http://127.0.0.1:FIXME',
-  $internal_url        = 'http://127.0.0.1:FIXME',
+  $public_url          = 'http://127.0.0.1:8778',
+  $admin_url           = 'http://127.0.0.1:8778',
+  $internal_url        = 'http://127.0.0.1:8778',
 ) {
 
   include ::senlin::deps
