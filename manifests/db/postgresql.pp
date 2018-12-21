@@ -34,8 +34,6 @@ class senlin::db::postgresql(
 
   include ::senlin::deps
 
-  Class['senlin::db::postgresql'] -> Service<| title == 'senlin' |>
-
   ::openstacklib::db::postgresql { 'senlin':
     password_hash => postgresql_password($user, $password),
     dbname        => $dbname,
@@ -44,6 +42,8 @@ class senlin::db::postgresql(
     privileges    => $privileges,
   }
 
-  ::Openstacklib::Db::Postgresql['senlin'] ~> Exec<| title == 'senlin-manage db_sync' |>
+  Anchor['senlin::db::begin']
+  ~> Class['senlin::db::postgresql']
+  ~> Anchor['senlin::db::end']
 
 }
