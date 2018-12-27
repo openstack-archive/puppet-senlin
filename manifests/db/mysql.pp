@@ -57,5 +57,8 @@ class senlin::db::mysql(
     allowed_hosts => $allowed_hosts,
   }
 
-  ::Openstacklib::Db::Mysql['senlin'] ~> Exec<| title == 'senlin-manage db_sync' |>
+  Anchor['senlin::db::begin']
+  ~> Class['senlin::db::mysql']
+  ~> Anchor['senlin::db::end']
+
 }
