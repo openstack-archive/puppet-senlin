@@ -32,7 +32,7 @@ Setup
 
 **What the senlin module affects**
 
-* [Senlin](https://wiki.openstack.org/wiki/Senlin), the Senlin service for OpenStack.
+* [Senlin](https://docs.openstack.org/senlin/latest/), the Senlin service for OpenStack.
 
 ### Installing senlin
 
