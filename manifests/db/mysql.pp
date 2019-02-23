@@ -45,7 +45,7 @@ class senlin::db::mysql(
 
   include ::senlin::deps
 
-  validate_string($password)
+  validate_legacy(String, 'validate_string', $password)
 
   ::openstacklib::db::mysql { 'senlin':
     user          => $user,

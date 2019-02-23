@@ -26,7 +26,7 @@ class senlin::config (
 
   include ::senlin::deps
 
-  validate_hash($senlin_config)
+  validate_legacy(Hash, 'validate_hash', $senlin_config)
 
   create_resources('senlin_config', $senlin_config)
 }
