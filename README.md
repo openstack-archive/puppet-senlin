@@ -92,4 +92,4 @@ Release Notes
 Repository
 -------------
 
-* https://git.openstack.org/cgit/openstack/puppet-senlin
+* https://opendev.org/openstack/puppet-senlin
