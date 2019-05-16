@@ -3,10 +3,11 @@
 class senlin::params {
 
   include ::senlin::deps
-
   include ::openstacklib::defaults
+  $pyvers = $::openstacklib::defaults::pyvers
 
-  $group = 'senlin'
+  $client_package_name = "python${pyvers}-senlinclient"
+  $group               = 'senlin'
 
 
   case $::osfamily {

@@ -1,0 +1,3 @@
+---
+features:
+  - A new senlin::client class has been added to manage senlin client. 
