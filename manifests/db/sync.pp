@@ -12,7 +12,7 @@ class senlin::db::sync(
   $extra_params = undef,
 ) {
 
-  include ::senlin::deps
+  include senlin::deps
 
   exec { 'senlin-db-sync':
     command     => "senlin-manage db_sync ${extra_params}",

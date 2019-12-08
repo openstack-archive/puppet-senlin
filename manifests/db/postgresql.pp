@@ -32,7 +32,7 @@ class senlin::db::postgresql(
   $privileges = 'ALL',
 ) {
 
-  include ::senlin::deps
+  include senlin::deps
 
   ::openstacklib::db::postgresql { 'senlin':
     password_hash => postgresql_password($user, $password),

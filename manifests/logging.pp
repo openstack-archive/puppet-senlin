@@ -123,7 +123,7 @@ class senlin::logging(
   $log_date_format               = $::os_service_default,
 ) {
 
-  include ::senlin::deps
+  include senlin::deps
 
   oslo::log { 'senlin_config':
     use_stderr                    => $use_stderr,

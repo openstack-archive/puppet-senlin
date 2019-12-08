@@ -24,7 +24,7 @@ class senlin::config (
   $senlin_config = {},
 ) {
 
-  include ::senlin::deps
+  include senlin::deps
 
   validate_legacy(Hash, 'validate_hash', $senlin_config)
 

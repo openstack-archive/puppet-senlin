@@ -62,7 +62,7 @@ class senlin::db (
   $database_idle_timeout            = undef,
 ) {
 
-  include ::senlin::deps
+  include senlin::deps
 
   if $database_idle_timeout {
     warning('The database_idle_timeout parameter is deprecated. Please use \

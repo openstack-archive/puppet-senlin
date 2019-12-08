@@ -202,7 +202,7 @@ class senlin::keystone::authtoken(
   $service_token_roles_required   = $::os_service_default,
 ) {
 
-  include ::senlin::deps
+  include senlin::deps
 
   keystone::resource::authtoken { 'senlin_config':
     username                       => $username,

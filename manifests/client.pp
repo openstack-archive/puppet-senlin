@@ -12,8 +12,8 @@ class senlin::client (
   $ensure = 'present'
 ) {
 
-  include ::senlin::deps
-  include ::senlin::params
+  include senlin::deps
+  include senlin::params
 
   package { 'python-senlinclient':
     ensure => $ensure,

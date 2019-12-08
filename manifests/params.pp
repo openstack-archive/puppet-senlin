@@ -2,8 +2,8 @@
 #
 class senlin::params {
 
-  include ::senlin::deps
-  include ::openstacklib::defaults
+  include senlin::deps
+  include openstacklib::defaults
   $pyvers = $::openstacklib::defaults::pyvers
 
   $client_package_name = "python${pyvers}-senlinclient"

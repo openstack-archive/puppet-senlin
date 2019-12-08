@@ -28,8 +28,8 @@ class senlin::policy (
   $policy_path = '/etc/senlin/policy.json',
 ) {
 
-  include ::senlin::deps
-  include ::senlin::params
+  include senlin::deps
+  include senlin::params
 
   validate_legacy(Hash, 'validate_hash', $policies)
 

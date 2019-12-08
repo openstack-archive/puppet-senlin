@@ -9,7 +9,7 @@
 #
 class senlin {
 
-  include ::senlin::deps
-  include ::senlin::params
+  include senlin::deps
+  include senlin::params
 
 }

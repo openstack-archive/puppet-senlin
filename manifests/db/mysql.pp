@@ -43,7 +43,7 @@ class senlin::db::mysql(
   $allowed_hosts = undef
 ) {
 
-  include ::senlin::deps
+  include senlin::deps
 
   validate_legacy(String, 'validate_string', $password)
 
