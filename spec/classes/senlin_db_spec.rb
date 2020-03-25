@@ -8,7 +8,6 @@ describe 'senlin::db' do
       it { should contain_oslo__db('senlin_config').with(
         :connection              => 'sqlite:////var/lib/senlin/senlin.sqlite',
         :connection_recycle_time => '<SERVICE DEFAULT>',
-        :min_pool_size           => '<SERVICE DEFAULT>',
         :db_max_retries          => '<SERVICE DEFAULT>',
         :max_pool_size           => '<SERVICE DEFAULT>',
         :max_retries             => '<SERVICE DEFAULT>',
@@ -23,7 +22,6 @@ describe 'senlin::db' do
         {
           :database_connection              => 'mysql+pymysql://senlin:senlin@localhost/senlin',
           :database_connection_recycle_time => '3601',
-          :database_min_pool_size           => '2',
           :database_db_max_retries          => '-1',
           :database_max_retries             => '11',
           :database_retry_interval          => '11',
@@ -38,7 +36,6 @@ describe 'senlin::db' do
       it { should contain_oslo__db('senlin_config').with(
         :connection              => 'mysql+pymysql://senlin:senlin@localhost/senlin',
         :connection_recycle_time => '3601',
-        :min_pool_size           => '2',
         :db_max_retries          => '-1',
         :max_pool_size           => '11',
         :max_retries             => '11',
