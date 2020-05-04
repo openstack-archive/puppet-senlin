@@ -46,8 +46,8 @@ Puppet::Type.newtype(:senlin_config) do
     defaultto('<SERVICE DEFAULT>')
   end
 
-  autorequire(:package) do
-    'senlin'
+  autorequire(:anchor) do
+    ['senlin::install::end']
   end
 
 end
