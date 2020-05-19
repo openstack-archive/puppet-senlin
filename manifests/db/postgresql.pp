@@ -35,11 +35,11 @@ class senlin::db::postgresql(
   include senlin::deps
 
   ::openstacklib::db::postgresql { 'senlin':
-    password_hash => postgresql_password($user, $password),
-    dbname        => $dbname,
-    user          => $user,
-    encoding      => $encoding,
-    privileges    => $privileges,
+    password   => $password,
+    dbname     => $dbname,
+    user       => $user,
+    encoding   => $encoding,
+    privileges => $privileges,
   }
 
   Anchor['senlin::db::begin']
