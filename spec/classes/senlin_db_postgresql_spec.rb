@@ -7,7 +7,7 @@ describe 'senlin::db::postgresql' do
   end
 
   let :required_params do
-    { :password => 'pw' }
+    { :password => 'senlinpass' }
   end
 
   shared_examples_for 'senlin-db-postgresql' do
@@ -16,9 +16,12 @@ describe 'senlin::db::postgresql' do
         required_params
       end
 
-      it { is_expected.to contain_postgresql__server__db('senlin').with(
-        :user     => 'senlin',
-        :password => 'md5ff94da79a52941aa5482161f9dc751ae'
+      it { is_expected.to contain_openstacklib__db__postgresql('senlin').with(
+        :user       => 'senlin',
+        :password   => 'senlinpass',
+        :dbname     => 'senlin',
+        :encoding   => nil,
+        :privileges => 'ALL',
       )}
     end
   end
