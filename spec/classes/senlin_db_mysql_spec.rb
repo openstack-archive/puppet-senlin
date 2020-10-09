@@ -16,6 +16,8 @@ describe 'senlin::db::mysql' do
         required_params
       end
 
+      it { should contain_class('senlin::deps') }
+
       it { is_expected.to contain_openstacklib__db__mysql('senlin').with(
         :user     => 'senlin',
         :password => 'senlinpass',
