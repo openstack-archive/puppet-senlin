@@ -16,6 +16,8 @@ describe 'senlin::db::postgresql' do
         required_params
       end
 
+      it { is_expected.to contain_class('senlin::deps') }
+
       it { is_expected.to contain_openstacklib__db__postgresql('senlin').with(
         :user       => 'senlin',
         :password   => 'senlinpass',
