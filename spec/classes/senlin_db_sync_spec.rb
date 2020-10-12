@@ -4,6 +4,8 @@ describe 'senlin::db::sync' do
 
   shared_examples_for 'senlin-dbsync' do
 
+    it { is_expected.to contain_class('senlin::deps') }
+
     it 'runs senlin-db-sync' do
       is_expected.to contain_exec('senlin-db-sync').with(
         :command     => 'senlin-manage db_sync ',
