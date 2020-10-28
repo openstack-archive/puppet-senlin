@@ -65,7 +65,7 @@
             "version_requirement": ">= 6.0.0 < 7.0.0"
         }
     ],
-    "source": "git://github.com/openstack/puppet-senlin.git",
+    "source": "https://opendev.org/openstack/puppet-senlin.git",
     "summary": "Puppet module for OpenStack Senlin",
     "version": "5.0.0"
 }
