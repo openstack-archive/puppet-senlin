@@ -13,6 +13,7 @@ describe 'senlin::db::sync' do
         :refreshonly => 'true',
         :try_sleep   => 5,
         :tries       => 10,
+        :timeout     => 300,
         :user        => 'senlin',
         :logoutput   => 'on_failure',
         :subscribe   => ['Anchor[senlin::install::end]',
