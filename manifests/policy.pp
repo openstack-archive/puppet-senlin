@@ -20,12 +20,12 @@
 #   Defaults to empty hash.
 #
 # [*policy_path*]
-#   (Optional) Path to the nova policy.json file
-#   Defaults to /etc/senlin/policy.json
+#   (Optional) Path to the nova policy.yaml file
+#   Defaults to /etc/senlin/policy.yaml
 #
 class senlin::policy (
   $policies    = {},
-  $policy_path = '/etc/senlin/policy.json',
+  $policy_path = '/etc/senlin/policy.yaml',
 ) {
 
   include senlin::deps
@@ -34,9 +34,10 @@ class senlin::policy (
   validate_legacy(Hash, 'validate_hash', $policies)
 
   Openstacklib::Policy::Base {
-    file_path  => $policy_path,
-    file_user  => 'root',
-    file_group => $::senlin::params::group,
+    file_path   => $policy_path,
+    file_user   => 'root',
+    file_group  => $::senlin::params::group,
+    file_format => 'yaml',
   }
 
   create_resources('openstacklib::policy::base', $policies)
