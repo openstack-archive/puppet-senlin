@@ -1,11 +1,12 @@
 require 'spec_helper'
 
 describe 'senlin::policy' do
-  shared_examples_for 'senlin-policies' do
+  shared_examples 'senlin::policy' do
     let :params do
       {
-        :policy_path => '/etc/senlin/policy.yaml',
-        :policies    => {
+        :enforce_scope => false,
+        :policy_path   => '/etc/senlin/policy.yaml',
+        :policies      => {
           'context_is_admin' => {
             'key'   => 'context_is_admin',
             'value' => 'foo:bar'
@@ -16,13 +17,15 @@ describe 'senlin::policy' do
 
     it 'set up the policies' do
       is_expected.to contain_openstacklib__policy__base('context_is_admin').with({
-        :key        => 'context_is_admin',
-        :value      => 'foo:bar',
-        :file_user  => 'root',
-        :file_group => 'senlin',
+        :key         => 'context_is_admin',
+        :value       => 'foo:bar',
+        :file_user   => 'root',
+        :file_group  => 'senlin',
+        :file_format => 'yaml',
       })
       is_expected.to contain_oslo__policy('senlin_config').with(
-        :policy_file => '/etc/senlin/policy.yaml',
+        :enforce_scope => false,
+        :policy_file   => '/etc/senlin/policy.yaml',
       )
     end
   end
@@ -35,7 +38,7 @@ describe 'senlin::policy' do
         facts.merge!(OSDefaults.get_facts())
       end
 
-      it_behaves_like 'senlin-policies'
+      it_behaves_like 'senlin::policy'
     end
   end
 end
