@@ -32,11 +32,16 @@
 #   (Optional) Path to the senlin policy.yaml file
 #   Defaults to /etc/senlin/policy.yaml
 #
+# [*policy_dirs*]
+#   (Optional) Path to the senlin policy folder
+#   Defaults to $::os_service_default
+#
 class senlin::policy (
   $enforce_scope        = $::os_service_default,
   $enforce_new_defaults = $::os_service_default,
   $policies             = {},
   $policy_path          = '/etc/senlin/policy.yaml',
+  $policy_dirs          = $::os_service_default,
 ) {
 
   include senlin::deps
@@ -56,7 +61,8 @@ class senlin::policy (
   oslo::policy { 'senlin_config':
     enforce_scope        => $enforce_scope,
     enforce_new_defaults => $enforce_new_defaults,
-    policy_file          => $policy_path
+    policy_file          => $policy_path,
+    policy_dirs          => $policy_dirs,
   }
 
 }
