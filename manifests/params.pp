@@ -4,9 +4,8 @@ class senlin::params {
 
   include senlin::deps
   include openstacklib::defaults
-  $pyvers = $::openstacklib::defaults::pyvers
 
-  $client_package_name = "python${pyvers}-senlinclient"
+  $client_package_name = 'python3-senlinclient'
   $group               = 'senlin'
 
 

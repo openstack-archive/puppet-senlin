@@ -29,15 +29,7 @@ describe 'senlin::client' do
         when 'Debian'
           { :client_package_name => 'python3-senlinclient' }
         when 'RedHat'
-          if facts[:operatingsystem] == 'Fedora'
-            { :client_package_name => 'python3-senlinclient' }
-          else
-            if facts[:operatingsystemmajrelease] > '7'
-              { :client_package_name => 'python3-senlinclient' }
-            else
-              { :client_package_name => 'python-senlinclient' }
-            end
-          end
+          { :client_package_name => 'python3-senlinclient' }
         end
       end
 
