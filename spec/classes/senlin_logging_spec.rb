@@ -30,6 +30,7 @@ describe 'senlin::logging' do
      :syslog_log_facility            => 'LOG_FOO',
      :log_dir                        => '/var/log',
      :log_file                       => '/var/tmp/senlin_random.log',
+     :watch_log_file                 => true,
      :debug                          => true,
     }
   end
@@ -66,6 +67,7 @@ describe 'senlin::logging' do
         :syslog_log_facility => '<SERVICE DEFAULT>',
         :log_dir             => '/var/log/senlin',
         :log_file            => '/var/log/senlin/senlin.log',
+        :watch_log_file      => '<SERVICE DEFAULT>',
         :debug               => '<SERVICE DEFAULT>',
       )
     end
@@ -81,6 +83,7 @@ describe 'senlin::logging' do
         :syslog_log_facility => 'LOG_FOO',
         :log_dir             => '/var/log',
         :log_file            => '/var/tmp/senlin_random.log',
+        :watch_log_file      => true,
         :debug               => true,
       )
     end
