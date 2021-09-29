@@ -89,7 +89,9 @@ class senlin::keystone::auth (
   if $configure_user_role {
     Keystone_user_role["${auth_name}@${tenant}"] ~> Service <| name == 'senlin-server' |>
   }
-  Keystone_endpoint["${region}/${service_name}::${service_type}"]  ~> Service <| name == 'senlin-server' |>
+  if $configure_endpoint {
+    Keystone_endpoint["${region}/${service_name}::${service_type}"]  ~> Service <| name == 'senlin-server' |>
+  }
 
   keystone::resource::service_identity { 'senlin':
     ensure              => $ensure,
