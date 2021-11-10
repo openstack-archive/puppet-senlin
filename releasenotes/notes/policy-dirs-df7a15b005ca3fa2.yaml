@@ -1,5 +1,0 @@
----
-features:
-  - |
-    There is now a new policy_dirs parameter in the senlin::policy class,
-    so one can set a custom path.
